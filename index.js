@@ -7,7 +7,7 @@ const crypto = require('crypto');
 
 // OpenAI 설정 (.env 파일에서 API 키를 가져옵니다)
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY, 
+  apiKey: process.env.OPENAI_API_KEY || 'placeholder',
 });
 
 const app = express();
