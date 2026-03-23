@@ -29,6 +29,14 @@ app.get('/', (req, res) => {
   res.send('SHT Book 백엔드 서버가 정상적으로 작동 중입니다! 🚀');
 });
 
+// 등록된 라우트 목록 확인용
+app.get('/debug/routes', (req, res) => {
+  const routes = app._router.stack
+    .filter(r => r.route)
+    .map(r => `${Object.keys(r.route.methods)[0].toUpperCase()} ${r.route.path}`);
+  res.json(routes);
+});
+
 // 임시 디버그 라우트 (환경변수 확인용)
 app.get('/debug/env', (req, res) => {
   res.json({
