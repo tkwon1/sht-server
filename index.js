@@ -28,6 +28,16 @@ app.get('/', (req, res) => {
   res.send('SHT Book 백엔드 서버가 정상적으로 작동 중입니다! 🚀');
 });
 
+// 임시 디버그 라우트 (환경변수 확인용)
+app.get('/debug/env', (req, res) => {
+  res.json({
+    SUPABASE_URL: process.env.SUPABASE_URL ? '설정됨' : '없음',
+    SUPABASE_KEY: process.env.SUPABASE_KEY ? '설정됨' : '없음',
+    OPENAI_API_KEY: process.env.OPENAI_API_KEY ? '설정됨' : '없음',
+    NODE_ENV: process.env.NODE_ENV,
+  });
+});
+
 // ==========================================
 // 주요 API (프론트엔드 - 백엔드 통신 창구)
 // ==========================================

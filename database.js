@@ -7,10 +7,15 @@ const supabaseKey = process.env.SUPABASE_KEY;
 
 if (!supabaseUrl || !supabaseKey) {
   console.error("🚨 환경변수에 SUPABASE_URL 또는 SUPABASE_KEY가 설정되지 않았습니다.");
+  console.error("SUPABASE_URL:", supabaseUrl ? "설정됨" : "없음");
+  console.error("SUPABASE_KEY:", supabaseKey ? "설정됨" : "없음");
 }
 
-// 클라이언트 연결
-const supabase = createClient(supabaseUrl, supabaseKey);
+// 클라이언트 연결 (환경변수 없으면 placeholder로 생성해 크래시 방지)
+const supabase = createClient(
+  supabaseUrl || 'https://placeholder.supabase.co',
+  supabaseKey || 'placeholder'
+);
 
 // Supabase 연결 확인 (테이블은 대시보드에서 생성)
 const initializeDB = async () => {
