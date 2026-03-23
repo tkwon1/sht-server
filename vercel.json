@@ -11,5 +11,8 @@
       "src": "/(.*)",
       "dest": "index.js"
     }
-  ]
+  ],
+  "env": {
+    "ALLOWED_ORIGINS": "https://sht-app.vercel.app,http://localhost:8081,exp://192.168.0.x"
+  }
 }
