@@ -1,3 +1,4 @@
+// SHT Book Server v1.1
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config(); // 환경변수 로드
